@@ -1,0 +1,80 @@
+ul.img_wall {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  list-style: none;
+}
+
+ul.img_wall li {
+  width: inherit;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  position: relative;
+}
+
+ul.img_wall li h1 {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  color: white;
+}
+
+@media screen and (min-width: 1024px) {
+  ul.img_wall li h1 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  ul.img_wall li h1 {
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  ul.img_wall li h1 {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  ul.img_wall li h1 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  ul.img_wall li h1 {
+    top: 15%;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  ul.img_wall li h1 {
+    font-size: 15px;
+  }
+}
+
+ul.img_wall li img {
+  width: inherit;
+}
+
+.cc {
+  width: 100%;
+  height: 900px;
+  background: red;
+}
+/*# sourceMappingURL=ImgWall.css.map */

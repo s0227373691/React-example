@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EACA,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;CAKhB;;AAPD,AAGI,IAHA,CAGA,SAAS,CAAC;EACN,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,cAAc;CAChC",
+    "sources": [
+        "MainProductCategoryContent.scss"
+    ],
+    "names": [],
+    "file": "MainProductCategoryContent.css"
+}

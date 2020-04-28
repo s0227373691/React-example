@@ -1,0 +1,75 @@
+.user_fn_btn_group {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.user_fn_btn_group ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+  list-style: none;
+}
+
+.user_fn_btn_group ul li {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  margin: 0 5px;
+  padding: 5px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aaa;
+  border-radius: 5px;
+}
+
+.user_fn_btn_group ul li:hover {
+  cursor: pointer;
+  background-color: #f9f9f9;
+}
+
+.user_fn_btn_group ul li img {
+  margin-right: 5px;
+}
+
+.user_fn_btn_group ul li a {
+  text-decoration: none;
+  color: #616060;
+}
+
+.user_fn_btn_group ul li.search:hover input {
+  width: 100px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.user_fn_btn_group ul li.search input {
+  width: 0px;
+  border: 0px;
+  outline: none;
+}
+/*# sourceMappingURL=NavBtnGroup.css.map */
