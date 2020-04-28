@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import './css_scss/NavProductCategory.css';
+import './css_scss/NavMenu.css';
 
-class NavProductCategoryList extends Component {
+class NavMenu extends Component {
 
 
     render() {
@@ -44,4 +44,4 @@ class NavProductCategoryList extends Component {
 
 }
 
-export default NavProductCategoryList;
+export default NavMenu;
