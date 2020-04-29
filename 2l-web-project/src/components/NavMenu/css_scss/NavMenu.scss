@@ -1,44 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
 
 nav {
-    width: 300px;
-    padding: 10px 10px 10px 50px;
+  width: 300px;
+  padding: 10px 10px 10px 50px;
+  box-sizing: border-box;
+
+  h1 {
+    font-size: 40px;
+    font-family: 'Exo 2', sans-serif;
+    text-align: center;
+    cursor: default;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
     box-sizing: border-box;
 
-    h1 {
-        font-size: 40px;
-        font-family: 'Exo 2', sans-serif;
-        text-align: center;
-        cursor: default;
+    li {
+      width: 100%;
+      border-top: 2px solid #aaa;
 
-    }
+      &:hover {
+        cursor: pointer;
 
-    ul {
-        padding: 0;
-        list-style: none;
-        box-sizing: border-box;
-
-        li {
-            width: 100%;
-            border-top: 2px solid #aaa;
-
-            &:hover {
-                cursor: pointer;
-
-                a {
-                    color: #aaa;
-                    transition: 0.3s;
-                }
-
-            }
-
-            a {
-                padding: 10px 10px 20px 10px;
-                display: block;
-                font-weight: bold;
-                text-decoration: none;
-                color: #333;
-            }
+        a {
+          color: #aaa;
+          transition: 0.3s;
         }
+      }
+
+      a {
+        padding: 10px 10px 20px 10px;
+        display: block;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+      }
     }
+  }
 }

@@ -63,6 +63,7 @@
 
 .user_fn_btn_group ul li.search:hover input {
   width: 100px;
+  padding: 5px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
