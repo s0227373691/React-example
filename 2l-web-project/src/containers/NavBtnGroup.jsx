@@ -1,58 +1,48 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 // Icons
-import IconUser from './png/user.png';
-import IconShoppingCart from './png/shopping-cart.png';
-import IconContact from './png/contact.png';
-import IconSearch from './png/search.png';
+import IconUser from "./png/user.png";
+import IconShoppingCart from "./png/shopping-cart.png";
+import IconContact from "./png/contact.png";
+import IconSearch from "./png/search.png";
 
 const NavBtnGroup = () => {
-  return (
-    <BtnGrpoupContainer>
-      <BtnList>
-        <BtnItem>
-          <BtnIcon src={IconUser} alt='Not Found' />
-          <BtnLink href=''>登入會員</BtnLink>
-        </BtnItem>
-        <BtnItem>
-          <BtnIcon src={IconShoppingCart} alt='Not Found' />
-          <BtnLink href=''>購物車</BtnLink>
-        </BtnItem>
-        <BtnItem>
-          <BtnIcon src={IconContact} alt='Not Found' />
-          <BtnLink href=''>聯絡我們</BtnLink>
-        </BtnItem>
-        <BtnItem className='search'>
-          <BtnIcon src={IconSearch} alt='Not Found' />
-          <input type='text' placeholder='找商品' />
-          <BtnLink>搜尋</BtnLink>
-        </BtnItem>
-      </BtnList>
-    </BtnGrpoupContainer>
-  );
-};
+  // set Styled-components
+  const BtnGrpoupContainer = styled.div`
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  `;
 
-export default NavBtnGroup;
+  const BtnList = styled.ul`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    list-style: none;
+  `;
 
+  const BtnItem = styled.li`
+    height: min-content;
+    margin: 0 5px;
+    padding: 5px 8px;
+    display: flex;
+    flex-direction: row;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #aaa;
+    border-radius: 5px;
 
-// set Styled-components
-const BtnGrpoupContainer = styled.div`
-  width: 100%;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-`;
+    &:hover {
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+  `;
 
-const BtnList = styled.ul`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 0;
-  list-style: none;
-
-  .search {
+  const BtnItemSearch = styled(BtnItem)`
     &:hover {
       input {
         width: 100px;
@@ -64,33 +54,45 @@ const BtnList = styled.ul`
     input {
       width: 0px;
       border: 0px;
+      transition: 0.5s;
       outline: none;
     }
-  }
-`;
+  `;
 
-const BtnItem = styled.li`
-  height: min-content;
-  margin: 0 5px;
-  padding: 5px 8px;
-  display: flex;
-  flex-direction: row;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #aaa;
-  border-radius: 5px;
+  const BtnIcon = styled.img`
+    margin-right: 5px;
+  `;
 
-  &:hover {
-    cursor: pointer;
-    background-color: #f9f9f9;
-  }
-`;
+  const BtnLink = styled.a`
+    text-decoration: none;
+    color: rgb(97, 96, 96);
+    display: flex;
+    align-items: center;
+  `;
 
-const BtnIcon = styled.img`
-  margin-right: 5px;
-`;
+  return (
+    <BtnGrpoupContainer>
+      <BtnList>
+        <BtnItem>
+          <BtnIcon src={IconUser} alt="Not Found" />
+          <BtnLink href="">登入會員</BtnLink>
+        </BtnItem>
+        <BtnItem>
+          <BtnIcon src={IconShoppingCart} alt="Not Found" />
+          <BtnLink href="">購物車</BtnLink>
+        </BtnItem>
+        <BtnItem>
+          <BtnIcon src={IconContact} alt="Not Found" />
+          <BtnLink href="">聯絡我們</BtnLink>
+        </BtnItem>
+        <BtnItemSearch>
+          <BtnIcon src={IconSearch} alt="Not Found" />
+          <input type="text" placeholder="找商品" />
+          <BtnLink>搜尋</BtnLink>
+        </BtnItemSearch>
+      </BtnList>
+    </BtnGrpoupContainer>
+  );
+};
 
-const BtnLink = styled.a`
-  text-decoration: none;
-  color: rgb(97, 96, 96);
-`;
+export default NavBtnGroup;
