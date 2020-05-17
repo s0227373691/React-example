@@ -1,37 +1,29 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import styled from "styled-components";
 
 // Route
-import Hot from '../mainpages/Hot/Hot.jsx';
-import Accessories from '../mainpages/Accessories/Accessories.jsx';
-import AllProducts from '../mainpages/AllProducts/AllProducts.jsx';
-import Couple from '../mainpages/Couple/Couple.jsx';
-import MadamsStyle from '../mainpages/MadamsStyle/MadamsStyle.jsx';
-import MensStyle from '../mainpages/MensStyle/MensStyle.jsx';
-import NewArrivals from '../mainpages/NewArrivals/NewArrivals.jsx';
-import NewDiscount from '../mainpages/NewDiscount/NewDiscount.jsx';
-import OddSizes from '../mainpages/OddSizes/OddSizes.jsx';
-
-import AboutUs from '../mainpages/AboutUs/AboutUs.jsx';
-import NotFoundPage from '../mainpages/NotFoundPage/NotFoundPage.jsx';
-
+import Login from "../components/Login";
+import Hot from "../mainpages/Hot";
+import NotFoundPage from "../mainpages/NotFoundPage";
 
 const MainProductCategory = () => {
   return (
     <ProductCategoryContainer>
-      <EmptyDiv className='emptydiv'></EmptyDiv>
       <Switch>
-        <Route exact path='/hot' component={Hot} />
-        <Route exact path='/accessories' component={Accessories} />
-        <Route exact path='/allproducts' component={AllProducts} />
-        <Route exact path='/couple' component={Couple} />
-        <Route exact path='/madamsstyle' component={MadamsStyle} />
-        <Route exact path='/mensstyle' component={MensStyle} />
-        <Route exact path='/newarrivals' component={NewArrivals} />
-        <Route exact path='/newdiscount' component={NewDiscount} />
-        <Route exact path='/oddsizes' component={OddSizes} />
-        <Route path='/about' component={AboutUs} />
+        <Route exact path="/login" component={Login} />
+
+        <Route path="/hot" component={Hot} />
+        <Route path="/accessories" component={Hot} />
+        <Route path="/allproducts" component={Hot} />
+        <Route path="/couple" component={Hot} />
+        <Route path="/madamsstyle" component={Hot} />
+        <Route path="/mensstyle" component={Hot} />
+        <Route path="/newarrivals" component={Hot} />
+        <Route path="/newdiscount" component={Hot} />
+        <Route path="/oddsizes" component={Hot} />
+        <Route path="/about" component={Hot} />
+
         <Route component={NotFoundPage} />
       </Switch>
     </ProductCategoryContainer>
@@ -40,12 +32,10 @@ const MainProductCategory = () => {
 
 export default MainProductCategory;
 
-
 // set Styled-components
 const ProductCategoryContainer = styled.main`
   width: 100%;
   padding: 10px;
-  
 `;
 
 const EmptyDiv = styled.div`

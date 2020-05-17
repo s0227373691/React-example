@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 // Icons
@@ -40,6 +41,13 @@ const NavBtnGroup = () => {
       cursor: pointer;
       background-color: #f9f9f9;
     }
+
+    a {
+      text-decoration: none;
+      color: rgb(97, 96, 96);
+      display: flex;
+      align-items: center;
+    }
   `;
 
   const BtnItemSearch = styled(BtnItem)`
@@ -59,36 +67,29 @@ const NavBtnGroup = () => {
     }
   `;
 
-  const BtnIcon = styled.img`
+  const Icon = styled.img`
     margin-right: 5px;
-  `;
-
-  const BtnLink = styled.a`
-    text-decoration: none;
-    color: rgb(97, 96, 96);
-    display: flex;
-    align-items: center;
   `;
 
   return (
     <BtnGrpoupContainer>
       <BtnList>
         <BtnItem>
-          <BtnIcon src={IconUser} alt="Not Found" />
-          <BtnLink href="">登入會員</BtnLink>
+          <Icon src={IconUser} alt="Not Found" />
+          <Link to='/login'>登入會員</Link>
         </BtnItem>
         <BtnItem>
-          <BtnIcon src={IconShoppingCart} alt="Not Found" />
-          <BtnLink href="">購物車</BtnLink>
+          <Icon src={IconShoppingCart} alt="Not Found" />
+          <Link to="/shoppingCart">購物車</Link>
         </BtnItem>
         <BtnItem>
-          <BtnIcon src={IconContact} alt="Not Found" />
-          <BtnLink href="">聯絡我們</BtnLink>
+          <Icon src={IconContact} alt="Not Found" />
+          <Link to="/contactUs">聯絡我們</Link>
         </BtnItem>
         <BtnItemSearch>
-          <BtnIcon src={IconSearch} alt="Not Found" />
+          <Icon src={IconSearch} alt="Not Found" />
           <input type="text" placeholder="找商品" />
-          <BtnLink>搜尋</BtnLink>
+          <Link>搜尋</Link>
         </BtnItemSearch>
       </BtnList>
     </BtnGrpoupContainer>
