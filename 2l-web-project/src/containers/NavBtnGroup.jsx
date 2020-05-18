@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // Icons
@@ -76,7 +76,7 @@ const NavBtnGroup = () => {
       <BtnList>
         <BtnItem>
           <Icon src={IconUser} alt="Not Found" />
-          <Link to='/login'>登入會員</Link>
+          <Link to="/login">註冊/登入會員</Link>
         </BtnItem>
         <BtnItem>
           <Icon src={IconShoppingCart} alt="Not Found" />
