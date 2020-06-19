@@ -11,18 +11,7 @@ const MainProductCategory = () => {
     <ProductCategoryContainer>
       <Switch>
         <Route exact path="/" />
-
-        <Route path="/hot" component={Hot} />
-        <Route path="/accessories" component={Hot} />
-        <Route path="/allproducts" component={Hot} />
-        <Route path="/couple" component={Hot} />
-        <Route path="/madamsstyle" component={Hot} />
-        <Route path="/mensstyle" component={Hot} />
-        <Route path="/newarrivals" component={Hot} />
-        <Route path="/newdiscount" component={Hot} />
-        <Route path="/oddsizes" component={Hot} />
-        <Route path="/about" component={Hot} />
-
+        <Route path={["/hot", "/accessories", "/allproducts", "/couple", "/madamsstyle", "/mensstyle", "/newarrivals", "/newdiscount", "/oddsizes", "/about"]} component={Hot} />
         <Route component={NotFoundPage} />
       </Switch>
     </ProductCategoryContainer>
