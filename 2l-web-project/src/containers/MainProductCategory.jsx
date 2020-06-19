@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import styled from "styled-components";
 
 // Route
-import Login from "../components/Login";
 import Hot from "../mainpages/Hot";
 import NotFoundPage from "../mainpages/NotFoundPage";
 
@@ -11,7 +10,7 @@ const MainProductCategory = () => {
   return (
     <ProductCategoryContainer>
       <Switch>
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/" />
 
         <Route path="/hot" component={Hot} />
         <Route path="/accessories" component={Hot} />

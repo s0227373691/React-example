@@ -1,3 +1,12 @@
 .cc {
     flex-direction: column;
+    border-radius: 5px;
+    border-color: rgb(144, 144, 144);
+  width: min-content;
+  cursor: pointer;
+  background-color: rgb(111, 191, 211);
+
+  color: rgb(83, 135, 255);
+  color: rgb(131, 168, 255)
+
 }

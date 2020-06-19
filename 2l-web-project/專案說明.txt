@@ -1,23 +1,18 @@
-使用套件
-1. npm-check-updates 
-   說明：用來檢查node_modules套件需要更新項目並更新，毋需手動。
-2. react-useanimations 
-   說明：動態icon。
-   安裝指令：yarn add react-useanimations
-3. react-router-dom
+1. 在NavBtnGroup.jsx
+   製作登陸和註冊兩個Modal的過程中，其中想製作一個功能是透過更改State，從login modal切換至register modal
+   原本想要透過以下方式切換狀態：
 
+   modalOpen = openModal => {
+    switch (openModal) {
+      case 'login':
+        this.setState({ displayLoginModal: true, displayRegisterModal: false })
+        break;
+      case 'register':
+        this.setState({ displayLoginModal: false, displayRegisterModal: true })
+        break;
+    }
+  }
 
-製作說明：
-整個專案我採用React+Sass，目前只有桌機和平板的尺寸，手機版的部分還沒製作。
-
-在網頁標籤的部分我自己製作一個png去換掉React預設logo圖，使用的製作網站是 https://www.favicon.cc/
-
-右上角我做了一套按鈕群組，各個按鈕上的icon是到這個網站抓的 https://icons8.com/icons
-搜尋按鈕的部分我有特別用:hover去處理顯示input顯示的效果
-
-左側目錄部分使用react-router-dom套件去切換資料夾mainpages底下的component
-
-
-
-
-   
+  但是出現 Error: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.
+  實際發生原因不是很清楚，
+  所以我後來多寫了modalOpenLogin 和 modalOpenRegister 兩個方法去切換他的狀態。 
