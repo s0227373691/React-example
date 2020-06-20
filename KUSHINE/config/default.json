@@ -1,3 +1,4 @@
 {
-    "mongoLocal": "mongodb://localhost:27017/test"
+    "mongoLocal": "mongodb://localhost:27017/test",
+    "jwtSecret": "mysecrettoken"
 }

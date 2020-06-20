@@ -44,7 +44,7 @@ class NavBtnGroup extends Component {
           <BtnList>
             <BtnItem>
               <Icon src={IconUser} alt="Not Found" />
-              <Link onClick={this.modalOpenLogin}>註冊/登入會員</Link>
+              <Link to="" onClick={this.modalOpenLogin}>註冊/登入會員</Link>
             </BtnItem>
             <BtnItem>
               <Icon src={IconShoppingCart} alt="Not Found" />
@@ -57,12 +57,12 @@ class NavBtnGroup extends Component {
             <BtnItemSearch>
               <Icon src={IconSearch} alt="Not Found" />
               <input type="text" placeholder="找商品" />
-              <Link>搜尋</Link>
+              <Link to="">搜尋</Link>
             </BtnItemSearch>
           </BtnList>
         </BtnGrpoupContainer>
         <Login show={this.state.displayLoginModal} modalOpened={this.modalOpenRegister} modalClosed={this.modalAllClose} />
-        <Resgister show={this.state.displayRegisterModal} modalClosed={this.modalAllClose} />
+        <Resgister show={this.state.displayRegisterModal} modalOpened={this.modalOpenLogin} modalClosed={this.modalAllClose} />
       </Fragment>
     );
   }

@@ -2,10 +2,15 @@ const express = require('express');
 const connectDB = require('./config/db')
 const app = express();
 
+app.use(express.json({ extended: false }))
+app.use('/api/user', require('./routers/api/users'));
+app.use('/api/auth', require('./routers/api/auth'));
+
 app.use('/', (req, res) => res.send('API Running!!'));
 
 //Connect  Database
 connectDB();
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

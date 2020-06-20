@@ -15,8 +15,9 @@ class Login extends Component {
             <FormGroup>
               <Input type="text" placeholder="Email Adress" />
               <Input type="password" placeholder="Password" />
+              <input type="submit" value="Sign in" />
+              {/* <Submit>Sign in</Submit> */}
             </FormGroup>
-            <Submit>Sign In</Submit>
             <p>New to KUSHINE? &nbsp;
               <CreateAccount onClick={modalOpened}>Create an account.</CreateAccount>
             </p>
