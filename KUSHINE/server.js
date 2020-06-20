@@ -3,7 +3,7 @@ const connectDB = require('./config/db')
 const app = express();
 
 app.use(express.json({ extended: false }))
-app.use('/api/user', require('./routers/api/users'));
+app.use('/api/users', require('./routers/api/users'));
 app.use('/api/auth', require('./routers/api/auth'));
 
 app.use('/', (req, res) => res.send('API Running!!'));

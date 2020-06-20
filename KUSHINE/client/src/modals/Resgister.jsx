@@ -6,28 +6,30 @@ import BackDrop from './BackDrop';
 
 const Resgister = ({ show, modalOpened, modalClosed }) => {
 
-  const [formData, setFormData] = useState({ username: '', email: '', password: '', password2: '' });
-  const { username, email, password, password2 } = formData;
+  const [formData, setFormData] = useState({ name: '', email: '', password: '', password2: '' });
+  const { name, email, password, password2 } = formData;
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) { console.log('Passwords do not match'); }
     else {
       const newUser = {
-        username,
+        name,
         email,
         password
       }
 
+      console.log(newUser)
+
       try{
         const config = {
           headers:{
-            'Content-type': 'application/json' 
+            'Content-Type': 'application/json' 
           }
         }
 
         const body = JSON.stringify(newUser);
-        const res = await axios.post('/api/user', body, config);
+        const res = await axios.post('/api/users', body, config);
         console.log(res.data);
       }catch(err){
         console.error(err.response.data);
@@ -42,7 +44,7 @@ const Resgister = ({ show, modalOpened, modalClosed }) => {
         <Modal>
           <h2>Sign up for KUSHINE</h2>
           <FormGroup onSubmit={e => onSubmit(e)}>
-            <Input type="text" name="username" value={username} onChange={onChange} placeholder="User Name" required />
+            <Input type="text" name="name" value={name} onChange={onChange} placeholder="User Name" required />
             <Input type="text" name="email" value={email} onChange={onChange} placeholder="Email Address" />
             <Input type="password" name="password" value={password} onChange={onChange} placeholder="Password" minLength='6' />
             <Input type="password" name="password2" value={password2} onChange={onChange} placeholder="Confirm Password" minLength='6' />

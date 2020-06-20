@@ -27,14 +27,14 @@ router.post('/', [
             }
 
             //Get Users gravator
-            const avator = gravatar.url(email, {
+            const avatar = gravatar.url(email, {
                 s: '200',
                 r: 'pg',
                 d: 'mm'
             });
 
             user = new User({
-                name, email, avator, password
+                name, email, avatar, password
             });
 
             const salt = await bcrypt.genSalt(10);
@@ -56,7 +56,7 @@ router.post('/', [
                     if (err) throw err;
                     res.json({ token })
                 }
-            )
+            );
 
             //Return jsonwebtoken
             // res.send('User Registered');
@@ -66,11 +66,6 @@ router.post('/', [
             res.status(500).send('Server error');
         }
 
-
-
-
-        console.log(req.body);
-        res.send('User route')
     });
 
 
