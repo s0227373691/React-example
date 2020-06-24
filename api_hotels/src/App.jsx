@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import SerachArea from "./components/SerachArea";
+import SerachRegion from "./components/SerachRegion";
 import Axios from "axios";
 
 import HotelList from "./containers/HotelList";
@@ -8,12 +8,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      searchAreaList: [1, 2],
-      selectedArea: "",
-      isEmpty: arr => arr.length === 0,
+      searchRegionList: [],
+      region: "",
+      hotelList: [],
+      isEmpty: arr => (arr.length === 0) ? true : false
+
     };
   }
   componentDidMount() {
+    this.getRegion();
+  }
+
+  getRegion = () => {
+    //options for get region 
     Axios.get("https://hotels4.p.rapidapi.com/get-meta-data", {
       method: "GET",
       headers: {
@@ -23,26 +30,47 @@ class App extends Component {
     })
       .then(res => {
         // console.log(res.data);
-        this.setState({ searchAreaList: res.data });
+        this.setState({ searchRegionList: res.data });
       })
       .catch(err => {
         console.log(err);
       });
   }
 
-  onChange = e => {
-    this.setState({ selectedArea: e.target.value });
+  getHotelList = () => {
+    const { region } = this.state;
+    const url = `https://hotels4.p.rapidapi.com/properties/list?currency=USD&locale=${region}&sortOrder=PRICE&destinationId=1506246&pageNumber=1&checkIn=2020-01-08&checkOut=2020-01-15&pageSize=25&adults1=1`;
+    Axios.get(url, {
+      method: "GET",
+      headers: {
+        "x-rapidapi-host": "hotels4.p.rapidapi.com",
+        "x-rapidapi-key": "5a1568ed77msh896d3f9612ed275p140b94jsn917c60c22662",
+      },
+    })
+      .then(res => {
+        this.setState({ hotelList: res.data.data.body.searchResults.results });
+        // console.log(this.state.hotelList);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  onChange = async e => {
+    await this.setState({ region: e.target.value });
+    this.getHotelList();
   };
 
   render() {
-    return (
+        const {searchRegionList ,hotelList , isEmpty} = this.state
+        return (
       <div className="App">
-        <SerachArea
-          searchAreaList={this.state.searchAreaList}
+        <SerachRegion
+          searchRegionList={searchRegionList}
           changed={this.onChange}
         />
-        {this.state.isEmpty(this.state.searchAreaList) ? null : (
-          <HotelList selectedArea={this.state.selectedArea} />
+        {isEmpty(hotelList) ? null : (
+          <HotelList hotelList={this.state.hotelList} />
         )}
       </div>
     );

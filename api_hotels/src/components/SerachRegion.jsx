@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const SerachArea = props => {
-  const optionContainer = props.searchAreaList.map(
-    ({ name, hcomLocale }, key) => {
+const SerachArea = ({searchRegionList, changed}) => {
+  const optionContainer = searchRegionList.map(
+    ({ name, hcomLocale }, i) => {
       return (
-        <option key={key} value={hcomLocale}>
+        <option key={i} value={hcomLocale}>
           {name}
         </option>
       );
@@ -13,12 +13,12 @@ const SerachArea = props => {
   );
   return (
     <Container>
-      <Title>Choose area</Title>
-      <DropDownList onChange={props.changed}>
+      <Title>Choose regions</Title>
+      <DropDownList onChange={changed}>
         <option value="">Please choose</option>
         <option value="es_AR">ARGENTINA</option>
         <option value="es_BZ">BELIZE</option>
-        {optionContainer}
+        {/* {optionContainer} */}
       </DropDownList>
     </Container>
   );
