@@ -1,0 +1,48 @@
+{
+    "hotel": {
+        "id": 634418464,
+        "name": "The Grand NYC",
+        "thumbnailUrl": "https://exp.cdn-hotels.com/hotels/20000000/19800000/19794400/19794327/b02255b8_l.jpg",
+        "starRating": 2,
+        "urls": "{}",
+        "address": {
+            "streetAddress": "38 West 31st Street",
+            "extendedAddress": "",
+            "locality": "Nueva York",
+            "postalCode": "10001",
+            "region": "NY",
+            "countryName": "Estados Unidos",
+            "countryCode": "us"
+        },
+        "guestReviews": {
+            "unformattedRating": 5.4,
+            "rating": "5.4",
+            "total": 377,
+            "scale": 10
+        },
+        "landmarks": "[{…}, {…}]",
+        "ratePlan": {
+            "price": {
+                "current": "USD 29",
+                "exactCurrent": 29
+            },
+            "features": {
+                "paymentPreference": false,
+                "noCCRequired": false
+            }
+        },
+        "neighbourhood": "NoMad",
+        "deals": "{}",
+        "messaging": "{}",
+        "badging": "{}",
+        "pimmsAttributes": "DoubleStamps|D13|TESCO",
+        "coordinate": {
+            "lat": 40.74725,
+            "lon": -73.98776
+        },
+        "providerType": "LOCAL",
+        "supplierHotelId": 19794327,
+        "vrBadge": "Departamentos",
+        "isAlternative": false
+    }
+}

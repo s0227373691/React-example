@@ -11,8 +11,7 @@ class App extends Component {
       searchRegionList: [],
       region: "",
       hotelList: [],
-      isEmpty: arr => (arr.length === 0) ? true : false
-
+      isEmpty: arr => (arr.length === 0 ? true : false),
     };
   }
   componentDidMount() {
@@ -20,7 +19,7 @@ class App extends Component {
   }
 
   getRegion = () => {
-    //options for get region 
+    //options for get region
     Axios.get("https://hotels4.p.rapidapi.com/get-meta-data", {
       method: "GET",
       headers: {
@@ -35,7 +34,7 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   getHotelList = () => {
     const { region } = this.state;
@@ -54,7 +53,7 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       });
-  }
+  };
 
   onChange = async e => {
     await this.setState({ region: e.target.value });
@@ -62,16 +61,16 @@ class App extends Component {
   };
 
   render() {
-        const {searchRegionList ,hotelList , isEmpty} = this.state
-        return (
+    const {
+      state: { searchRegionList, hotelList, isEmpty },
+      onChange,
+    } = this;
+    return (
       <div className="App">
-        <SerachRegion
-          searchRegionList={searchRegionList}
-          changed={this.onChange}
-        />
-        {isEmpty(hotelList) ? null : (
-          <HotelList hotelList={this.state.hotelList} />
-        )}
+        <SerachRegion searchRegionList={searchRegionList} changed={onChange} />
+        <div>
+          {isEmpty(hotelList) ? null : <HotelList hotelList={hotelList} />}
+        </div>
       </div>
     );
   }
