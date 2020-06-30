@@ -1,0 +1,1 @@
+export const FETCH_REGION = 'FETCH_REGION'

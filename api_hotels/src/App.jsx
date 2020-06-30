@@ -1,21 +1,24 @@
 import React, { Component } from "react";
+import { Provider } from 'react-redux'
 import SerachRegion from "./components/SerachRegion";
 import Axios from "axios";
 
+import store from './store'
 import HotelList from "./containers/HotelList";
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      searchRegionList: [],
+      // searchRegionList: [],
       region: "",
       hotelList: [],
+      displayModal: false,
       isEmpty: arr => (arr.length === 0 ? true : false),
     };
   }
   componentDidMount() {
-    this.getRegion();
+    // this.getRegion();
   }
 
   getRegion = () => {
@@ -52,6 +55,7 @@ class App extends Component {
       })
       .catch(err => {
         console.log(err);
+        this.getHotelList();
       });
   };
 
@@ -62,16 +66,22 @@ class App extends Component {
 
   render() {
     const {
-      state: { searchRegionList, hotelList, isEmpty },
-      onChange,
+      state: { hotelList, isEmpty },
+      // state: { searchRegionList, hotelList, isEmpty },
+      // onChange,
     } = this;
+
     return (
-      <div className="App">
-        <SerachRegion searchRegionList={searchRegionList} changed={onChange} />
-        <div>
-          {isEmpty(hotelList) ? null : <HotelList hotelList={hotelList} />}
+      <Provider store={store}>
+        <div className="App">
+          <SerachRegion />
+          {/* <SerachRegion changed={onChange} /> */}
+          {/* <SerachRegion searchRegionList={searchRegionList} changed={onChange} /> */}
+          <div>
+            {isEmpty(hotelList) ? null : <HotelList hotelList={hotelList} />}
+          </div>
         </div>
-      </div>
+      </Provider>
     );
   }
 }

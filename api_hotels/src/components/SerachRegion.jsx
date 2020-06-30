@@ -1,30 +1,47 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from 'react-redux'
 import styled from "styled-components";
 
-const SerachArea = ({searchRegionList, changed}) => {
-  const optionContainer = searchRegionList.map(
-    ({ name, hcomLocale }, i) => {
-      return (
-        <option key={i} value={hcomLocale}>
-          {name}
+import { fetchSerachRegion } from '../actions/serachRegionAction'
+
+class SerachArea extends Component {
+  //  = ({ searchRegionList, changed }) => {
+
+  componentWillMount() {
+    this.props.fetchSerachRegion();
+  }
+
+  render() {
+    console.log(this.props)
+    const optionContainer = this.props.fetchRegion.map(
+      // ({ name, hcomLocale }, i) => (
+      (item, i) => (
+        <option key={i} value={item.hcomLocale}>
+          {item.name}
         </option>
-      );
-    }
-  );
-  return (
-    <Container>
-      <Title>Choose regions</Title>
-      <DropDownList onChange={changed}>
-        <option value="">Please choose</option>
-        <option value="es_AR">ARGENTINA</option>
-        <option value="es_BZ">BELIZE</option>
-        {/* {optionContainer} */}
-      </DropDownList>
-    </Container>
-  );
+      )
+    );
+    return (
+      <Container>
+        <Title>Choose regions</Title>
+        <DropDownList>
+          {/* <DropDownList onChange={changed}> */}
+          <option value="">Please choose</option>
+          {/* <option value="es_AR">ARGENTINA</option>
+            <option value="es_BZ">BELIZE</option> */}
+          {optionContainer}
+        </DropDownList>
+      </Container>
+    )
+
+  }
 };
 
-export default SerachArea;
+const mapStateToProps = state => ({
+  fetchRegion: state.fetchRegion.items,
+});
+
+export default connect(mapStateToProps, { fetchSerachRegion })(SerachArea);
 
 const Container = styled.section`
   width: 500px;
