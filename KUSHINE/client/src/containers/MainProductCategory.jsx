@@ -7,11 +7,12 @@ import Hot from "../mainpages/Hot";
 import NotFoundPage from "../mainpages/NotFoundPage";
 
 const MainProductCategory = () => {
+  const routesPath = ["/hot", "/accessories", "/allproducts", "/couple", "/madamsstyle", "/mensstyle", "/newarrivals", "/newdiscount", "/oddsizes", "/about"];
   return (
     <ProductCategoryContainer>
       <Switch>
         <Route exact path="/" />
-        <Route path={["/hot", "/accessories", "/allproducts", "/couple", "/madamsstyle", "/mensstyle", "/newarrivals", "/newdiscount", "/oddsizes", "/about"]} component={Hot} />
+        <Route path={routesPath} component={Hot} />
         <Route component={NotFoundPage} />
       </Switch>
     </ProductCategoryContainer>
