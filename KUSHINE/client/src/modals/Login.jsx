@@ -1,31 +1,35 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 
 import BackDrop from './BackDrop';
 
-class Login extends Component {
 
-  render() {
-    const { show, modalOpened, modalClosed } = this.props;
-    return (
-      this.props.show ?
-        (<Fragment>
-          <Modal>
-            <h2>Sign in to KUSHINE</h2>
-            <FormGroup>
-              <Input type="text" placeholder="Email Adress" />
-              <Input type="password" placeholder="Password" />
-              <input type="submit" value="Sign in" />
-              {/* <Submit>Sign in</Submit> */}
-            </FormGroup>
-            <p>New to KUSHINE? &nbsp;
-              <CreateAccount onClick={modalOpened}>Create an account.</CreateAccount>
-            </p>
-          </Modal>
-          <BackDrop show={show} clicked={modalClosed} />
-        </Fragment>) : null
-    );
-  }
+
+const Login = ({ show, modalOpened, modalClosed }) => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  })
+
+  const LoginCompoenet =
+    (<Fragment>
+      <Modal>
+        <h2>Sign in to KUSHINE</h2>
+        <FormGroup>
+          <EmailInput />
+          <PasswordInput />
+          {/* <input type="submit" value="Sign in" /> */}
+          {/* <Submit>Sign in</Submit> */}
+          <Submit />
+        </FormGroup>
+        <p>New to KUSHINE? &nbsp;
+        <CreateAccount onClick={modalOpened}>Create an account.</CreateAccount>
+        </p>
+      </Modal>
+      <BackDrop show={show} clicked={modalClosed} />
+    </Fragment>)
+
+  return show ? LoginCompoenet : null
 };
 
 export default Login;
@@ -51,23 +55,38 @@ const Input = styled.input`
   margin-bottom: 10px;
   padding: 10px;
   font-size: 18px;
-  border-color: rgb(144, 144, 144);
+  border: 1px solid rgb(144, 144, 144);
+  // border-color: rgb(144, 144, 144);
   border-radius:5px;
 `;
 
-// const Submit = styled.div`
-//   width: max-content;
-//   margin-left: auto;
-//   padding:7px;
-//   cursor: pointer;
-//   background-color: rgb(111, 191, 211);
-//   border-radius: 5px;
-//   color: white;
+const EmailInput = styled(Input).attrs({
+  type: 'email',
+  placeholder: 'Email Address'
+})``;
 
-//   &:hover{
-//     color: gray;
-//   }
-// `;
+const PasswordInput = styled(Input).attrs({
+  type: 'password',
+  placeholder: 'Password'
+})``;
+
+const Submit = styled.input.attrs({
+  type: "submit",
+  value: "Start shopping"
+})`
+  width: 100%;
+  margin-top: 10px;
+  padding:10px;
+  cursor: pointer;
+  background-color: #3493fb;
+  border: 1px;
+  border-radius: 5px;
+  color: white;
+
+  &:hover{
+    opacity: 0.8;
+  }
+`;
 
 const CreateAccount = styled.a`
   color: rgb(83, 135, 255);
