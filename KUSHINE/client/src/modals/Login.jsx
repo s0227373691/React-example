@@ -55,19 +55,19 @@ const Input = styled.input`
   border-radius:5px;
 `;
 
-const Submit = styled.div`
-  width: max-content;
-  margin-left: auto;
-  padding:7px;
-  cursor: pointer;
-  background-color: rgb(111, 191, 211);
-  border-radius: 5px;
-  color: white;
+// const Submit = styled.div`
+//   width: max-content;
+//   margin-left: auto;
+//   padding:7px;
+//   cursor: pointer;
+//   background-color: rgb(111, 191, 211);
+//   border-radius: 5px;
+//   color: white;
 
-  &:hover{
-    color: gray;
-  }
-`;
+//   &:hover{
+//     color: gray;
+//   }
+// `;
 
 const CreateAccount = styled.a`
   color: rgb(83, 135, 255);

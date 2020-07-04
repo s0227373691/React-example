@@ -27,7 +27,3 @@ const ProductCategoryContainer = styled.main`
   padding: 10px;
 `;
 
-const EmptyDiv = styled.div`
-  height: 128px;
-  border-bottom: 2px solid #aaa;
-`;
