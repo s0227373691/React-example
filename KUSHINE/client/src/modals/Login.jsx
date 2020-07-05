@@ -11,20 +11,27 @@ const Login = ({ show, modalOpened, modalClosed }) => {
     password: ''
   })
 
+  const { email, password } = formData;
+
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
+
+  const onSubmit = async e => {
+    e.preventDefault();
+    console.log(formData)
+  }
+
   const LoginCompoenet =
     (<Fragment>
       <Modal>
-        <h2>Sign in to KUSHINE</h2>
-        <FormGroup>
-          <EmailInput />
-          <PasswordInput />
-          {/* <input type="submit" value="Sign in" /> */}
-          {/* <Submit>Sign in</Submit> */}
-          <Submit />
+        <Title>Sign in to KUSHINE</Title>
+        <FormGroup onSubmit={e => onSubmit(e)}>
+          <InputEmail value={email} onChange={e => onChange(e)} />
+          <InputPassword value={password} onChange={e => onChange(e)} />
+          <BtnSubmit />
         </FormGroup>
-        <p>New to KUSHINE? &nbsp;
-        <CreateAccount onClick={modalOpened}>Create an account.</CreateAccount>
-        </p>
+        <CreateAccount>New to KUSHINE? &nbsp;
+          <ToggleModal onClick={modalOpened}>Create an account.</ToggleModal>
+        </CreateAccount>
       </Modal>
       <BackDrop show={show} clicked={modalClosed} />
     </Fragment>)
@@ -45,6 +52,11 @@ const Modal = styled.section`
   background-color: white;
 `;
 
+const Title = styled.h2`
+  color: #3493fb;
+    
+`;
+
 const FormGroup = styled.form`
   display: flex;
   flex-direction: column;
@@ -60,35 +72,43 @@ const Input = styled.input`
   border-radius:5px;
 `;
 
-const EmailInput = styled(Input).attrs({
+const InputEmail = styled(Input).attrs({
   type: 'email',
-  placeholder: 'Email Address'
+  name: 'email',
+  placeholder: 'Email Address',
+  required: true
 })``;
 
-const PasswordInput = styled(Input).attrs({
+const InputPassword = styled(Input).attrs({
   type: 'password',
+  name: 'password',
   placeholder: 'Password'
 })``;
 
-const Submit = styled.input.attrs({
+const BtnSubmit = styled.input.attrs({
   type: "submit",
   value: "Start shopping"
 })`
   width: 100%;
-  margin-top: 10px;
+  margin: 10px 0;
   padding:10px;
   cursor: pointer;
   background-color: #3493fb;
   border: 1px;
   border-radius: 5px;
   color: white;
+  font-size: 18px;
 
   &:hover{
     opacity: 0.8;
   }
 `;
 
-const CreateAccount = styled.a`
+const CreateAccount = styled.p`
+  color: rgb(83, 83, 83);
+`;
+
+const ToggleModal = styled.a`
   color: rgb(83, 135, 255);
 
   &:hover{
