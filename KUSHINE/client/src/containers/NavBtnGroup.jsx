@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 //Modals
 import Login from "../modals/Login";
-import Resgister from "../modals/Resgister";
+import Register from "../modals/Register";
 // Icons
 import IconUser from "./png/user.png";
 import IconShoppingCart from "./png/shopping-cart.png";
@@ -62,7 +62,7 @@ class NavBtnGroup extends Component {
           </BtnList>
         </BtnGrpoupContainer>
         <Login show={this.state.displayLoginModal} modalOpened={this.modalOpenRegister} modalClosed={this.modalAllClose} />
-        <Resgister show={this.state.displayRegisterModal} modalOpened={this.modalOpenLogin} modalClosed={this.modalAllClose} />
+        <Register show={this.state.displayRegisterModal} modalOpened={this.modalOpenLogin} modalClosed={this.modalAllClose} />
       </Fragment>
     );
   }

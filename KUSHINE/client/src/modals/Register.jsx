@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import BackDrop from './BackDrop';
 
-const Resgister = ({ show, modalOpened, modalClosed }) => {
+const Register = ({ show, modalOpened, modalClosed }) => {
 
   const [formData, setFormData] = useState({ name: '', email: '', password: '', password2: '' });
   const { name, email, password, password2 } = formData;
@@ -42,7 +42,7 @@ const Resgister = ({ show, modalOpened, modalClosed }) => {
     show ?
       (<Fragment>
         <Modal>
-          <h2>Sign up for KUSHINE</h2>
+          <h2>Create your account</h2>
           <FormGroup onSubmit={e => onSubmit(e)}>
             <Input type="text" name="name" value={name} onChange={onChange} placeholder="User Name" required />
             <Input type="text" name="email" value={email} onChange={onChange} placeholder="Email Address" />
@@ -58,7 +58,7 @@ const Resgister = ({ show, modalOpened, modalClosed }) => {
   );
 };
 
-export default Resgister;
+export default Register;
 
 
 const Modal = styled.section`
