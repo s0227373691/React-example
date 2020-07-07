@@ -6,12 +6,30 @@ import BackDrop from './BackDrop';
 
 const Register = ({ show, modalOpened, modalClosed }) => {
 
-  const [formData, setFormData] = useState({ name: '', email: '', password: '', password2: '' });
-  const { name, email, password, password2 } = formData;
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    password2: ''
+  });
+
+  const {
+    name,
+    email,
+    password,
+    password2
+  } = formData;
+
+  const onChange = e => setFormData({
+    ...formData,
+    [e.target.name]: e.target.value
+  });
+
   const onSubmit = async e => {
     e.preventDefault();
-    if (password !== password2) { console.log('Passwords do not match'); }
+    if (password !== password2) {
+      alert('Passwords do not match');
+    }
     else {
       const newUser = {
         name,
@@ -21,41 +39,44 @@ const Register = ({ show, modalOpened, modalClosed }) => {
 
       console.log(newUser)
 
-      try{
+      try {
         const config = {
-          headers:{
-            'Content-Type': 'application/json' 
+          headers: {
+            'Content-Type': 'application/json'
           }
         }
 
         const body = JSON.stringify(newUser);
         const res = await axios.post('/api/users', body, config);
         console.log(res.data);
-      }catch(err){
+      } catch (err) {
         console.error(err.response.data);
       }
 
     }
   }
 
-  return (
-    show ?
-      (<Fragment>
-        <Modal>
-          <h2>Create your account</h2>
-          <FormGroup onSubmit={e => onSubmit(e)}>
-            <Input type="text" name="name" value={name} onChange={onChange} placeholder="User Name" required />
-            <Input type="text" name="email" value={email} onChange={onChange} placeholder="Email Address" />
-            <Input type="password" name="password" value={password} onChange={onChange} placeholder="Password" minLength='6' />
-            <Input type="password" name="password2" value={password2} onChange={onChange} placeholder="Confirm Password" minLength='6' />
-            <input type="submit" value="Sign up" />
-            {/* <Submit>Sign up</Submit> */}
-          </FormGroup>
-          <CreateAccount onClick={modalOpened}>Sign in now</CreateAccount>
-        </Modal>
-        <BackDrop show={show} clicked={modalClosed} />
-      </Fragment>) : null
-  );
+  const RegisterComponent = (
+    <Fragment>
+      <Modal>
+        <Title>Create your account</Title>
+        <FormGroup onSubmit={e => onSubmit(e)}>
+          <InputUserName value={name} onChange={onChange} />
+          <InputEmail value={email} onChange={onChange} />
+          <InputPassword value={password} onChange={onChange} />
+          <InputPassword2 value={password2} onChange={onChange} />
+          <Submit />
+        </FormGroup>
+        <Login>
+          Have an account? &nbsp;
+            <ToggleModal onClick={modalOpened}>Sign in now</ToggleModal>
+        </Login>
+      </Modal>
+      <BackDrop show={show} clicked={modalClosed} />
+    </Fragment>
+  )
+
+  return show ? RegisterComponent : null
 };
 
 export default Register;
@@ -72,6 +93,11 @@ const Modal = styled.section`
   background-color: white;
 `;
 
+const Title = styled.h2`
+  color: #3493fb;
+    
+`;
+
 const FormGroup = styled.form`
   display: flex;
   flex-direction: column;
@@ -82,28 +108,62 @@ const Input = styled.input`
   margin-bottom: 10px;
   padding: 10px;
   font-size: 18px;
-  border-color: rgb(144, 144, 144);
+  border: 1px solid rgb(144, 144, 144);
   border-radius:5px;
 `;
 
-// const Submit = styled.input.attrs({
-//   type: "submit",
-//   value: "submit"
-// })`
-//   width: max-content;
-//   margin-left: auto;
-//   padding:7px;
-//   cursor: pointer;
-//   background-color: rgb(111, 191, 211);
-//   border-radius: 5px;
-//   color: white;
+const InputUserName = styled(Input).attrs({
+  type: 'text',
+  name: 'name',
+  placeholder: 'User Name',
+  required: true
+})``;
 
-//   &:hover{
-//     color: gray;
-//   }
-// `;
+const InputEmail = styled(Input).attrs({
+  type: 'email',
+  name: 'email',
+  placeholder: 'Email Address',
+  minLength: '6'
+})``;
 
-const CreateAccount = styled.a`
+const InputPassword = styled(Input).attrs({
+  type: 'password',
+  name: 'password',
+  placeholder: 'Password',
+  minLength: '6'
+})``;
+
+const InputPassword2 = styled(Input).attrs({
+  type: 'password',
+  name: 'password2',
+  placeholder: 'Confirm Password',
+  minLength: '6'
+})``;
+
+const Submit = styled.input.attrs({
+  type: "submit",
+  value: "Sign up"
+})`
+  width: 100%;
+  margin: 10px 0;
+  padding:10px;
+  cursor: pointer;
+  background-color: #3493fb;
+  border: 1px;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+
+  &:hover{
+    opacity: 0.8;
+  }
+`;
+
+const Login = styled.p`
+  color: rgb(83, 83, 83);
+`;
+
+const ToggleModal = styled.a`
   color: rgb(83, 135, 255);
 
   &:hover{
