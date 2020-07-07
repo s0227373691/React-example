@@ -68,7 +68,6 @@ const Input = styled.input`
   padding: 10px;
   font-size: 18px;
   border: 1px solid rgb(144, 144, 144);
-  // border-color: rgb(144, 144, 144);
   border-radius:5px;
 `;
 
