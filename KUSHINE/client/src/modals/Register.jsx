@@ -31,13 +31,6 @@ const Register = ({ show, modalOpened, modalClosed }) => {
       alert('Passwords do not match');
     }
     else {
-      const newUser = {
-        name,
-        email,
-        password
-      }
-
-      console.log(newUser)
 
       try {
         const config = {
@@ -46,11 +39,17 @@ const Register = ({ show, modalOpened, modalClosed }) => {
           }
         }
 
-        const body = JSON.stringify(newUser);
-        const res = await axios.post('/api/users', body, config);
-        console.log(res.data);
+        const body = JSON.stringify({
+          name,
+          email,
+          password
+        });
+        await axios.post('/api/users', body, config);
+        alert('Registration success!!');
+
       } catch (err) {
         console.error(err.response.data);
+        alert('Registration failed!!');
       }
 
     }
@@ -65,7 +64,7 @@ const Register = ({ show, modalOpened, modalClosed }) => {
           <InputEmail value={email} onChange={onChange} />
           <InputPassword value={password} onChange={onChange} />
           <InputPassword2 value={password2} onChange={onChange} />
-          <Submit />
+          <BtnSubmit />
         </FormGroup>
         <Login>
           Have an account? &nbsp;
@@ -140,7 +139,7 @@ const InputPassword2 = styled(Input).attrs({
   minLength: '6'
 })``;
 
-const Submit = styled.input.attrs({
+const BtnSubmit = styled.input.attrs({
   type: "submit",
   value: "Sign up"
 })`
