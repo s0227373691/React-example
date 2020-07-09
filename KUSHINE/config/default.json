@@ -1,4 +1,5 @@
 {
     "mongoLocal": "mongodb://localhost:27017/test",
+    "mongoAtlas": "mongodb+srv://test123:test123@cluster0.wehh2.mongodb.net/<dbname>?retryWrites=true&w=majority",
     "jwtSecret": "mysecrettoken"
 }
