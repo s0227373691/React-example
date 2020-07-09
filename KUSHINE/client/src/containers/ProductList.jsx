@@ -3,17 +3,6 @@ import styled from "styled-components";
 import Product from "../components/Product";
 
 const ProductList = () => {
-  // set Styled-components
-  const ProductsConstainer = styled.ul`
-    margin: 0;
-    padding: 10px;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  `;
-
   return (
     <ProductsConstainer>
       {products.map(({ id, url, name, price }) => {
@@ -24,6 +13,17 @@ const ProductList = () => {
 };
 
 export default ProductList;
+
+// set Styled-components
+const ProductsConstainer = styled.ul`
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
 
 // set Products data
 const products = [
