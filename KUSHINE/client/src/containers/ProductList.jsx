@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Product from "../components/Product";
 
+// TODO:調整標籤命名
 const ProductList = () => {
   return (
     <ProductsConstainer>
@@ -25,6 +26,7 @@ const ProductsConstainer = styled.ul`
   flex-wrap: wrap;
 `;
 
+// TODO:改變資料存放至MongoDB Atlas
 // set Products data
 const products = [
   {

@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 import BackDrop from './BackDrop';
 
-
-
+// TODO: 使用Redux與後端串接登入資訊，變更登入畫面
 const Login = ({ show, modalOpened, modalClosed }) => {
   const [formData, setFormData] = useState({
     email: '',

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// TODO:調整標籤命名, 畫面調整
 const Product = ({ id, name, url, price }) => {
   return (
     <ProductContainer>
