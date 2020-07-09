@@ -6,7 +6,9 @@ class NavMenu extends Component {
   render() {
     return (
       <MenuContainer>
-        <MenuTitle>KUSHINE</MenuTitle>
+        <MenuTitle>
+          <Link to='/'>KUSHINE</Link>
+        </MenuTitle>
         <MenuList>
           <MenuItem>
             <Link to='/hot'>HOT</Link>
@@ -56,6 +58,11 @@ const MenuTitle = styled.h1`
   font-family: 'Exo 2', sans-serif;
   text-align: center;
   cursor: default;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 `;
 
 const MenuList = styled.ul`
