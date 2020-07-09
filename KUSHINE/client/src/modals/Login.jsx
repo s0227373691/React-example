@@ -19,8 +19,8 @@ const Login = ({ show, modalOpened, modalClosed }) => {
     console.log(formData)
   }
 
-  const LoginCompoenet =
-    (<Fragment>
+  const LoginCompoenet = () => (
+    <Fragment>
       <Modal>
         <Title>Sign in to KUSHINE</Title>
         <FormGroup onSubmit={e => onSubmit(e)}>
@@ -33,7 +33,8 @@ const Login = ({ show, modalOpened, modalClosed }) => {
         </CreateAccount>
       </Modal>
       <BackDrop show={show} clicked={modalClosed} />
-    </Fragment>)
+    </Fragment>
+  )
 
   return show ? LoginCompoenet : null
 };

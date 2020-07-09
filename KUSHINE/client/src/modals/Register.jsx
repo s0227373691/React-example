@@ -55,7 +55,7 @@ const Register = ({ show, modalOpened, modalClosed }) => {
     }
   }
 
-  const RegisterComponent = (
+  const RegisterComponent () => (
     <Fragment>
       <Modal>
         <Title>Create your account</Title>
