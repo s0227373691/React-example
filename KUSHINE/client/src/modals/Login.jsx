@@ -19,7 +19,7 @@ const Login = ({ show, modalOpened, modalClosed }) => {
     console.log(formData)
   }
 
-  const LoginCompoenet = () => (
+  const LoginCompoenet = (
     <Fragment>
       <Modal>
         <Title>Sign in to KUSHINE</Title>
