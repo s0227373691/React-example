@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json({ extended: false }))
 app.use('/api/users', require('./routers/api/users'));
 app.use('/api/auth', require('./routers/api/auth'));
+app.use('/api/products', require('./routers/api/products'));
 
 app.use('/', (req, res) => res.send('API Running!!'));
 
