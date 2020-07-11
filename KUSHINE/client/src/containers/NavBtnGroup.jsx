@@ -5,11 +5,12 @@ import styled from "styled-components";
 //Modals
 import Login from "../modals/Login";
 import Register from "../modals/Register";
+
 // Icons
-import IconUser from "./png/user.png";
-import IconShoppingCart from "./png/shopping-cart.png";
-import IconContact from "./png/contact.png";
-import IconSearch from "./png/search.png";
+import IconUser from "../images/png/user.png";
+import IconShoppingCart from "../images/png/shopping-cart.png";
+import IconContact from "../images/./png/contact.png";
+import IconSearch from "../images/png/search.png";
 
 class NavBtnGroup extends Component {
   constructor(props) {
@@ -19,18 +20,6 @@ class NavBtnGroup extends Component {
       displayRegisterModal: false
     }
   }
-
-  // modalOpen = openModal => {
-  //   switch (openModal) {
-  //     case 'login':
-  //       this.setState({ displayLoginModal: true, displayRegisterModal: false })
-  //       break;
-  //     case 'register':
-  //       this.setState({ displayLoginModal: false, displayRegisterModal: true })
-  //       break;
-
-  //   }
-  // }
 
   modalOpenLogin = () => this.setState({ displayLoginModal: true, displayRegisterModal: false })
   modalOpenRegister = () => this.setState({ displayLoginModal: false, displayRegisterModal: true })
@@ -72,62 +61,62 @@ export default NavBtnGroup;
 
 // set Styled-components
 const BtnGrpoupContainer = styled.div`
-width: 100%;
-height: 50px;
-display: flex;
-flex-direction: row;
-justify-content: flex-end;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 `;
 
 const BtnList = styled.ul`
-display: flex;
-flex-direction: row;
-align-items: center;
-margin: 0;
-list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  list-style: none;
 `;
 
 const BtnItem = styled.li`
-height: min-content;
-margin: 0 5px;
-padding: 5px 8px;
-display: flex;
-flex-direction: row;
-border-width: 1px;
-border-style: solid;
-border-color: #aaa;
-border-radius: 5px;
-
-&:hover {
-  cursor: pointer;
-  background-color: #f9f9f9;
-}
-
-a {
-  text-decoration: none;
-  color: rgb(97, 96, 96);
+  height: min-content;
+  margin: 0 5px;
+  padding: 5px 8px;
   display: flex;
-  align-items: center;
-}
+  flex-direction: row;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #aaa;
+  border-radius: 5px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f9f9f9;
+  }
+
+  a {
+    text-decoration: none;
+    color: rgb(97, 96, 96);
+    display: flex;
+    align-items: center;
+  }
 `;
 
 const BtnItemSearch = styled(BtnItem)`
-&:hover {
-  input {
-    width: 100px;
-    padding: 5px;
-    transition: 0.5s;
+  &:hover {
+    input {
+      width: 100px;
+      padding: 5px;
+      transition: 0.5s;
+    }
   }
-}
 
-input {
-  width: 0px;
-  border: 0px;
-  transition: 0.5s;
-  outline: none;
-}
+  input {
+    width: 0px;
+    border: 0px;
+    transition: 0.5s;
+    outline: none;
+  }
 `;
 
 const Icon = styled.img`
-margin-right: 5px;
+  margin-right: 5px;
 `;
