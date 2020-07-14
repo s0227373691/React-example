@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 // TODO:調整標籤命名, 畫面調整
-const Product = ({ id, name, url, price }) => {
+const Product = ({ productInfo: { name, url, price } }) => {
+  const imgSrc = `background-image: url('${url}')`;
   return (
     <ProductContainer>
       <a href="index.html" target="_blank">
-        <ProductImg url={url} />
+        <ProductImg src={url} />
         <p>{name}</p>
         <section>${price}</section>
       </a>
@@ -37,10 +38,9 @@ const ProductContainer = styled.li`
     transition: 0.1s;
   }
 `;
-
 const ProductImg = styled.div`
   width: 100%;
   height: 200px;
-  background-image:  url(${props => props.url});
+  background-image: url('${props => props.src}');
   background-size: cover;
 `;
